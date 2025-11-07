@@ -25,9 +25,13 @@ async function loadChannels() {
           <img src="${logo}" alt="${name}">
           <h4>${name}</h4>
         `;
+
         card.onclick = () => {
-          window.location.href = `oyuncu.html?url=${encodeURIComponent(url)}`;
+          // CORS proxy ile yönlendirme
+          const safeUrl = "https://corsproxy.io/?" + encodeURIComponent(url);
+          window.location.href = `oyuncu.html?url=${safeUrl}`;
         };
+
         container.appendChild(card);
       }
     });
