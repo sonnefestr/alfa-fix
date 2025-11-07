@@ -35,7 +35,8 @@
   <button class="back-btn" onclick="history.back()">← Geri</button>
   <div id="player"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/playerjs@1/playerjs.js"></script>
+  <!-- Alternatif PlayerJS kaynağı -->
+  <script src="https://cdn.jsdelivr.net/gh/JackenTheBox/playerjs@master/playerjs.js"></script>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const videoUrl = urlParams.get("url");
@@ -43,7 +44,7 @@
     if (videoUrl) {
       const player = new Playerjs({
         id: "player",
-        file: videoUrl,
+        file: "https://corsproxy.io/?" + videoUrl,
         poster: "",
       });
     } else {
